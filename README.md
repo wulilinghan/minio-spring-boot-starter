@@ -1,2 +1,2 @@
 # xml-demo
-xml解析
+使用jackson-dataformat-xml解析xml
