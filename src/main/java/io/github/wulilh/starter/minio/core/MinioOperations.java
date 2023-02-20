@@ -18,7 +18,7 @@ public interface MinioOperations {
 
     boolean bucketExists(String bucketName);
 
-    void createBucket(String bucketName);
+    boolean createBucket(String bucketName);
 
     List<Bucket> getAllBuckets();
 
@@ -27,23 +27,22 @@ public interface MinioOperations {
     void deleteBucket(String bucketName);
 
 
-    String getObjectUrl(String bucketName, String objectName, int expires) throws Exception;
+    String getObjectUrl(String bucketName, String objectName, int expires);
 
-    String getObjectUrl(String bucketName, String objectName) throws Exception;
+    String getObjectUrl(String bucketName, String objectName);
 
-    InputStream getObject(String bucketName, String objectName) throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException, ServerException;
+    InputStream getObject(String bucketName, String objectName);
 
-    void downloadObject(String bucketName, String objectName, String filename) throws Exception;
+    void downloadObject(String bucketName, String objectName, String filename);
 
-    void putObject(String bucketName, String objectName, InputStream stream) throws Exception;
+    void putObject(String bucketName, String objectName, InputStream stream);
 
-    void putObject(String bucketName, String objectName, InputStream stream, long size, String contextType) throws Exception;
+    void putObject(String bucketName, String objectName, String contextType, InputStream stream);
 
-    StatObjectResponse getObjectInfo(String bucketName, String objectName) throws Exception;
+    StatObjectResponse getObjectInfo(String bucketName, String objectName);
 
-    StatObjectResponse getObjectInfo(StatObjectArgs args) throws Exception;
+    StatObjectResponse getObjectInfo(StatObjectArgs args);
 
-    void removeObject(String bucketName, String objectName) throws Exception;
+    void removeObject(String bucketName, String objectName);
 
-    String presignedPutObject(String bucketName, String objectName, Integer expires) throws Exception;
 }
